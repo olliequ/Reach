@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lekton&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #50afb3;
+    text-align: center;
+    overflow: hidden;
+}
+
+.field {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Lekton', sans-serif;
+}
+
+input[type=radio] {
+    opacity: 10;
+    position: fixed;
+}
+
+input[type=radio]+label {
+    background-color: #eee;
+    padding: 1em;
+}
+
+input {
+    visibility: hidden;
+}
+
+input:checked+label {
+    color: red;
+}
+
+label {
+    color: grey;
+    height: 5rem;
+    display: inline-block;
+    height: 2rem;
+    width: 15rem;
+    border-radius: 8px;
+}
+
+.option {
+    margin: .5rem 0rem;
+}
+
+.yellow {
+    background-color: #f9eec7;
+}
+
+.green {
+    background-color: #d1e5e1;
+}
+
+.orange {
+    background-color: #fbe2d8;
+}
+
+.pink {
+    background-color: #fae9ed;
+}
+
+img {
+    width: 18rem;
+}
+
+textarea {
+    background-color: #d1e4e1;
+    color: black;
+    border: none;
+    border-radius: .5rem;
+    padding: .25rem;
+    resize: none;
+}
+
+button {
+    height: 2rem;
+    width: 10rem;
+    background-color: #afdfdb;
+    border: 0;
+    border-radius: .5rem;
+    color: white;
+}

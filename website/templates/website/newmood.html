@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/newmood.css' %}">
+    <script src="{% static 'website/newmood.js' %}"></script>
+    <title>
+        New Entry!
+    </title>
+</head>
+
+<body>
+    <form action="{% url 'website:moodlogs' %}" method="POST" id="moodform">
+        {% csrf_token %}
+        <div class="field">
+            <div class="option">
+                <a href="{% url 'website:mood' %}" style="color: blue;">Home.</a><br>
+                <h2>Hey. Ready for an entry? &#x270D;</h2>
+                <h3 style="color: black; font-size: 9;">Remember, you can't edit past entries (for keepsake!), though you sure can delete them.</h3><br>
+                <h3>Let's start. How are you feeling today?</h3>
+            </div>
+            <div class="option ">
+                <label for="Happy" class="pink" style="line-height: 220%;">Happy
+                    <input type="radio" name="mood" id="Happy" value="1"><br></label>
+            </div>
+            <div class="option ">
+                <label for="Stressed" class="green" style="line-height: 220%">Stressed
+                    <input type="radio" name="mood" id="Stressed" value="4"><br></label>
+            </div>
+            <div class="option ">
+                <label for="Excited" class="orange" style="line-height: 220%">Excited
+                    <input type="radio" name="mood" id="Excited" value="2"><br></label>
+            </div>
+            <div class="option ">
+                <label for="Sad" class="yellow" style="line-height: 220%">Sad
+                    <input type="radio" name="mood" id="Sad" value="3"><br></label>
+            </div>
+            <a href="#slept" style="display: none">skip</a>
+
+            <div>
+                <img src="{% static 'website/pictures/urban-line-education.png' %}" alt="">
+            </div>
+        </div>
+
+        <div class="field" id="slept">
+            <p>How many hours did you sleep for last night?</p>
+            <div class="option">
+                <label for="eight" class="pink" style="line-height: 220%">7+
+                    <input type="radio" name="sleep" id="eight" value="1">
+                </label>
+            </div>
+            <div class="option">
+                <label for="six" class="green" style="line-height: 220%">5-7
+                    <input type="radio" name="sleep" id="six" value="2">
+                </label>
+            </div>
+            <div class="option">
+                <label for="two" class="orange" style="line-height: 220%">2-5
+                    <input type="radio" name="sleep" id="two" value="3">
+                </label>
+            </div>
+            <div class="option">
+                <label for="one" class="yellow" style="line-height: 220%">Less than 2
+                    <input type="radio" name="sleep" id="one" value="4">
+                </label>
+            </div>
+            <a href="#food" style="display: none">skip</a>
+            <div>
+
+                <img src="{% static 'website/pictures/urban-line-message-sent.png' %}" alt="">
+            </div>
+        </div>
+        <div class="field" id="food">
+
+            <p>How many meals have you had today?</p>
+            <div class="option">
+                <label for="three" class="pink" style="line-height: 220%">3 or more
+                    <input type="radio" name="meals" id="three" value="1">
+                </label>
+
+            </div>
+            <div class="option">
+                <label for="twos" class="green" style="line-height: 220%">2
+                    <input type="radio" name="meals" id="twos" value="2">
+                </label>
+            </div>
+            <div class="option">
+                <label for="ones" class="orange" style="line-height: 220%">1
+                    <input type="radio" name="meals" id="ones" value="3">
+                </label>
+            </div>
+            <div class="option">
+                <label for="coffee" class="yellow" style="line-height: 220%">Just a cup of coffee!
+                    <input type="radio" name="meals" id="coffee" value="4">
+                </label>
+            </div>
+            <a href="#friends" style="display: none">skip</a>
+            <div>
+
+                <img src="{% static 'website/pictures/urban-line-308.png' %}" alt="">
+            </div>
+        </div>
+        <br>
+        <div class="field" id="friends">
+            <p>Who have you seen today?</p>
+
+            <div class="option">
+
+                <label for="friend" class="pink" style="line-height: 220%">One or more friends.
+                    <input type="radio" name="people" id="friend" value="1"><br></label>
+            </div>
+            <div class="option">
+
+                <label for="family" class="green" style="line-height: 220%">Family members.
+                    <input type="radio" name="people" id="family" value="2"><br></label>
+            </div>
+            <div class="option">
+
+                <label for="date" class="orange" style="line-height: 220%">Went on a date.
+                    <input type="radio" name="people" id="date" value="3"><br></label>
+            </div>
+            <div class="option">
+
+                <label for="none" class="yellow" style="line-height: 220%">No one. It was a 'me' day.
+                    <input type="radio" name="people" id="none" value="4"><br></label>
+            </div>
+
+            <a href="#thoughts" style="display: none">skip</a>
+            <div>
+
+                <img src="{% static 'website/pictures/urban-line-420.png' %}" alt="">
+            </div>
+        </div>
+
+        <div class="field" id="thoughts">
+            <p>What's on your mind right now? Feel free to scribble.</p>
+            <div class="option">
+                <label for="description">
+                    <textarea placeholder="Type here." name="description" id="description" cols="30" rows="10" style="color: black;"></textarea><br>
+                </label>
+            </div>
+            <div class="option">
+                <button name="submitbutton">Submit</button>
+            </div>
+            <div class="option">
+                <img src="{% static 'website/pictures/urban-line-475.png' %}" alt="">
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

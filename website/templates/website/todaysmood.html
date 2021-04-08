@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/aboutus.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Today's Entry</title>
+    <link rel="icon" href="{% static 'website/pictures/logoPH.png' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet">
+</head>
+ 
+<body style="text-align: center; background-color: aliceblue;">
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="{% url 'website:homepage' %}" class="navbar-brand">
+                <img src="{% static 'website/pictures/logoPH.png' %}" height="30" alt="REACH logo">
+                REACH                
+            </a>
+           
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="justify-content-end collapse navbar-collapse" id="navbarCollapse" style="font-size: min(5vh, 20px);">
+                <div class="navbar-nav">
+                    <a href="{% url 'website:homepage' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'website:meditate' %}" class="nav-item nav-link"> Meditate</a>
+                    <a href="{% url 'website:moodlogs' %}" class="nav-item nav-link">Mood</a>
+                    <a href="{% url 'website:resources' %}" class="nav-item nav-link">Resources</a>
+                    <a href="{% url 'website:aboutus' %}" class="nav-item nav-link">About Us</a>
+                    <a href="{% url 'website:error' %}" class="nav-item nav-link">Log Out</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+ 
+    <br><br><br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">Your entry for {{ moods.date }}.</h1>
+    <br>
+    <h2 style="font-size: 25px; padding-left: 10%; padding-right: 10%;" class = "padder">You were feeling {{ moods.feeling }}, huh? Here's what you had to say: </h2>
+    <div style="display: flex; display: inline-block;padding: 1rem 2rem; flex-direction: column; align-items: center; background-color: #fae9ed; border-radius: .5rem; text-align: center; color: grey;">
+        {{ moods.diary }}
+    </div> 
+    <br>
+    <div id="picture">
+        <img src="{% static 'website/pictures/404.png' %}/" alt="Pic" width="700">
+    </div>
+</body>
+</html>

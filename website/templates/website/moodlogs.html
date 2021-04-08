@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/aboutus.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All logs</title>
+    <link rel="icon" href="{% static 'website/pictures/logoPH.png' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet">
+    <script src="{% static 'website/moodlogs.js' %}"></script>
+</head>
+ 
+<body style="text-align: center; background-color: aliceblue;">
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="{% url 'website:homepage' %}" class="navbar-brand">
+                <img src="{% static 'website/pictures/logoPH.png' %}" height="30" alt="REACH logo">
+                REACH                
+            </a>
+           
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="justify-content-end collapse navbar-collapse" id="navbarCollapse" style="font-size: min(5vh, 20px);">
+                <div class="navbar-nav">
+                    <a href="{% url 'website:homepage' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'website:meditate' %}" class="nav-item nav-link"> Meditate</a>
+                    <a href="{% url 'website:resources' %}" class="nav-item nav-link">Resources</a>
+                    <a href="{% url 'website:aboutus' %}" class="nav-item nav-link">About Us</a>
+                    <a href="{% url 'users:logout' %}" class="nav-item nav-link">Log Out</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    {% if message %}
+    <div id = "top" class="alert alert-info" role="alert" style="font-family: 'Lekton', sans-serif; font-size: 18px;">
+        Interesting to see you've been {{ message.mood }}. Your entry has been added below! &#x2728;
+    </div>{% endif %}
+
+    {% if message_two %}
+    <div id = "top" class="alert alert-danger" role="alert" style="font-family: 'Lekton', sans-serif; font-size: 18px;">
+        Your message has been successfully deleted! &#x2728;
+    </div>{% endif %}
+ 
+    <br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">All of your logs, {{ moods.0.username }}, are below.</h1><br>
+    <h3 style="font-size: 15px;">Click on any of them to see more about them. You can also delete them by clicking the corresponding 'x' on the far right.</h3><br>
+    <a href="{% url 'website:mood' %}">Make new diary entry</a><br><br>
+    {% for mood in moods reversed %}
+    <form action="{% url 'website:moodlogs' %}" method="post" style="justify-content: center;">
+        {% csrf_token %}
+        <button onclick="return confirm('Are you sure you want to delete this entry?')" 
+         type="submit" name="xbutton" value="{{ mood.id }}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </form>
+    <div onclick="location.href = '{{ user_id }}/{{ forloop.revcounter0 }}'" id="logs" class="outfit{{ mood.mood }}" 
+        style="display: flex; display: inline-block; padding: 1rem 2rem; flex-direction: column; align-items: center; border-radius: .5rem; text-align: center; color: grey;">
+    Diary Entry <b>{{ forloop.revcounter }}</b>, made on {{ mood.date }}  Vibe: {{ mood.mood }}.</div><br><br>
+    {% empty %}
+    <div>You have yet to create a log!</div>
+    {% endfor %} 
+    <br>
+    <div id="picture">
+        <img src="{% static 'website/pictures/404.png' %}/" alt="Pic" width="700">
+    </div>
+</body>
+</html>
+
+<!-- <h2 style="font-size: 25px; padding-left: 10%; padding-right: 10%;" class = "padder">The logs should be above here.</h2> -->

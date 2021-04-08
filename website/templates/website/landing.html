@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- MY STYLESHEET-->
+    <link rel="stylesheet" href="{% static 'website/styles2.css' %}">
+ 
+    <!-- Display NEED TO CHANGE-->
+    <title>REACH - Landing Page</title>
+    <link rel="icon" href="{% static 'website/pictures/logoPH.png' %}">
+ 
+    <!-- ANIMATE.STYLE LIB-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+ 
+    <!-- GOOGLE FONTS - HOPEFULLY RIGHT ONE?-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div id="parentofgreetandimage" class="animate__animated animate__fadeOutUp animate__slow animate__delay-1s animate"> <!-- CAN CHANGE TO fadeOutRight or SOMETHING ELSE-->
+        <div id="greeting">
+          R E A C H
+      </div>
+      <div id="picture">
+          <img  src="{% static 'website/pictures/meditation222.png' %}" alt="" style="width: min(100vw, 1080px)">
+      </div>
+      </div>
+      {% if message %}
+        <div id = "top" class="alert alert-info" role="alert" style="font-family: 'Lekton', sans-serif; font-size: 25px;">
+        {{ message }} &#x2728;
+        </div>
+      {% endif %}
+      <img src="{% static 'website/pictures/navlogoPH.png' %}" alt="" style="width: min(5vw, 1080px)">
+      <img src="{% static 'website/pictures/logoPH.png' %}" alt="" style="width: min(5vw, 1080px)">
+      <div id="itemsandlogin">    
+        <ul id="listoflinks">
+          <li> WHAT IS 'REACH'?</li>
+          <p id="paragraphexpl">REACH is a webapp designed to help boost your productivity by providing resources that help you stay in control of your mental health. Meditation, mood logs, streaks, links to external help and more!</p>
+          <li> HOW DOES IT WORK?</li>
+          <p id="paragraphexpl">With REACH, you can log your mood, meditate and see indicators of your mental health over time. REACH provides two main tools one can use to boost one’s mental health: an interactive Meditation tool, and a personalised Journal & Mood Tracking page. REACH personalises users' experience even further by allowing account creation - in fact, for privacy and full access benefits to REACH, users must create an account.</p>
+        </ul>
+        <a id="loginbutton" href="{% url 'users:login' %}" class="btn btn-primary" role="button">LOG IN</a>
+        <a id="loginbutton" href="{% url 'website:signup' %}" class="btn btn-primary" role="button">SIGN UP</a><br>
+        <div id="picture">
+          <img src="{% static 'website/pictures/apples.png' %}" alt="Pic" width="400">
+      </div>
+      </div>
+
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!-- REACH has been created by a curious group of UoM students, and is officially our entry to HackMelbourne's Hackiethon 2021. -->

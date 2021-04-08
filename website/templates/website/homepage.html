@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- MY STYLESHEET-->
+    <link rel="stylesheet" href="../../static/website/styles3.css">
+ 
+    <!-- Display NEED TO CHANGE-->
+    <title>REACH - Home Page</title>
+    <link rel="icon" href="../../static/website/pictures/logoPH.png">
+ 
+    <!-- ANIMATE.STYLE LIB-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+ 
+    <!-- GOOGLE FONTS - HOPEFULLY RIGHT ONE?-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="{% url 'website:index' %}" class="navbar-brand">
+                <img src="../../static/website/pictures/logoPH.png" height="30" alt="REACH logo">
+            </a>
+            REACH
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="justify-content-end collapse navbar-collapse" id="navbarCollapse" style="font-size: min(5vh, 20px);">
+                <div class="navbar-nav">
+                    <a href="{% url 'website:meditate' %}" class="nav-item nav-link"> Meditate</a>
+                    <a href="{% url 'website:moodlogs' %}" class="nav-item nav-link">Mood</a>
+                    <a href="{% url 'website:resources' %}" class="nav-item nav-link">Resources</a>
+                    <a href="{% url 'website:aboutus' %}" class="nav-item nav-link">About Us</a>
+                    <a href="{% url 'users:logout' %}" class="nav-item nav-link">Log Out</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    {% if message %}<br><br>
+    <h1 style="font-size: 15px; color: rebeccapurple; text-align: center; padding-left: 5%; padding-right: 5%; background-color: orchid;">
+        {{ message }}</h1>
+    {% endif %}
+    <p>
+   <h1><b>Welcome to REACH!</b></h1 style="color: #AFDFDB;">  <br><br>
+        <h4 style="color: rgb(32, 111, 148); font-size: 27px; padding-left: 7%; padding-right: 7%;">
+    Welcome, {{ request.user.first_name|title }}.</h4><br><br>
+    <h3 style="font-size: 20px; padding-left: 7%; padding-right: 7%;">
+        If this is your first time here, congratulations on joining the team! Please use the navigation bar to get around our site. We would recommend starting with the 'Mood' tool, and then checking out the 'Meditation' tool; links for these can be seen in the top right!
+        We hope you find value in the tools we provide, and that this site will be of use in these unique times.</h3>
+    <img id="mainimg" src="../../static/website/pictures/high5.png" alt="" style="max-width: 720px;" >
+    </p>
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
