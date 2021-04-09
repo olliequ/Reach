@@ -50,7 +50,7 @@
         Entry has successfully been deleted! &#x2728;
     </div>{% endif %}
  
-    <br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">{{ first_name }}, all of your logs are below.</h1><br>
+    <br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">{{ first_name|title }}, all of your logs are below.</h1><br>
     <h3 style="font-size: 15px;">Click on any of them to see more about them. You can also delete them by clicking the corresponding 'x' on the far right.</h3><br>
     <a href="{% url 'website:mood' %}">Make new diary entry</a><br><br>
     {% for mood in moods reversed %}
