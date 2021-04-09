@@ -59,7 +59,7 @@ class Mood(models.Model):
     sleep = models.ForeignKey(Sleep, on_delete=models.CASCADE, related_name="sleep")
     meals = models.ForeignKey(Meals, on_delete=models.CASCADE, related_name="meals")
     meetings = models.ForeignKey(Meetings, on_delete=models.CASCADE, related_name="meetings")
-    diary = models.CharField(max_length=255)
+    diary = models.TextField()
 
 
 
