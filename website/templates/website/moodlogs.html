@@ -46,8 +46,8 @@
     </div>{% endif %}
 
     {% if message_two %}
-    <div id = "top" class="alert alert-danger" role="alert" style="font-family: 'Lekton', sans-serif; font-size: 18px;">
-        Your message has been successfully deleted! &#x2728;
+    <div id = "top" class="alert alert-danger" role="alert" style="font-family: 'Lekton', sans-serif; font-size: 14px;">
+        Entry has successfully been deleted! &#x2728;
     </div>{% endif %}
  
     <br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">All of your logs, {{ moods.0.username }}, are below.</h1><br>
@@ -65,10 +65,6 @@
     {% empty %}
     <div>You have yet to create a log!</div>
     {% endfor %} 
-    <br>
-    <img id="mainimg" src="../../static/website/pictures/high5.png" alt="" style="max-width: 720px;">
-    <br>
-    <img id="mainimg" src="../../static/website/pictures/404.png" alt="" style="max-width: 720px;">
     <br>
     <div id="picture">
         <img src="{% static 'website/pictures/404.png' %}" alt="Pic" width="700">
