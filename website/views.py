@@ -14,14 +14,9 @@ class NewTaskForm(forms.Form):
 # Create your views here.
 def index(request): #this index represents a view. When should we return this function/response? We do this in urls.py.
     if request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("website:homepage"))    
-    
-    if "tasks" not in request.session: #if I look into the session (big dictionary representing all the info we know about the user)
-        request.session["tasks"] = []
+        return HttpResponseRedirect(reverse("website:homepage"))
 
-    return render(request, "website/landing.html", { #Special class made by Django. Make this response when the index function is called elsewhere in the project.
-        "tasks": request.session["tasks"]
-    }) 
+    return render(request, "website/landing.html") 
 
 def homepage(request):
     if not request.user.is_authenticated:
