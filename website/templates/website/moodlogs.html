@@ -50,7 +50,7 @@
         Entry has successfully been deleted! &#x2728;
     </div>{% endif %}
  
-    <br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">All of your logs, {{ moods.0.username }}, are below.</h1><br>
+    <br><h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px;">{{ first_name }}, all of your logs are below.</h1><br>
     <h3 style="font-size: 15px;">Click on any of them to see more about them. You can also delete them by clicking the corresponding 'x' on the far right.</h3><br>
     <a href="{% url 'website:mood' %}">Make new diary entry</a><br><br>
     {% for mood in moods reversed %}
@@ -63,7 +63,7 @@
         style="display: flex; display: inline-block; padding: 1rem 2rem; flex-direction: column; align-items: center; border-radius: .5rem; text-align: center; color: grey;">
     Diary Entry <b>{{ forloop.revcounter }}</b>, made on {{ mood.date }}  Vibe: {{ mood.mood }}.</div><br><br>
     {% empty %}
-    <div>You have yet to create a log!</div>
+    <div style="color: orangered;">You have yet to make any entries - click above to make one!</div>
     {% endfor %} 
     <br>
     <div id="picture">

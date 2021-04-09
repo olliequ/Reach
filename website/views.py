@@ -123,7 +123,8 @@ def moodlogs(request):
         return render(request, "website/moodlogs.html", {
             "message": Mood.objects.filter(username=request.user.username).last(),
             "moods": Mood.objects.filter(username=request.user.username),
-            "user_id": request.user.id   
+            "user_id": request.user.id,
+            "first_name": request.user.first_name     
         })
 
     elif 'xbutton' in request.POST:
@@ -133,12 +134,14 @@ def moodlogs(request):
         return render(request, "website/moodlogs.html", {
             "message_two": Mood.objects.filter(username=request.user.username).last(),
             "moods": Mood.objects.filter(username=request.user.username),
-            "user_id": request.user.id   
+            "user_id": request.user.id,
+            "first_name": request.user.first_name    
         })        
 
     return render(request, "website/moodlogs.html", {
         "moods": Mood.objects.filter(username=request.user.username),
-        "user_id": request.user.id  
+        "user_id": request.user.id,
+        "first_name": request.user.first_name  
     }) 
 
 def moodedit(request, user_id, mood_id):
