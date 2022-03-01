@@ -4,4 +4,4 @@
 
 This project was originally created for a hackathon, whereby its backend was written in node.js. It's implementation was rife with bugs, and so after the hackathon concluded I decided to **re-write the entire backend in Django** (a Python backend framework).
 
-The entire codebase for the website is open-source and presented above. This project is still currently active and is served at the domain `https://reachapp.xyz`. Check it out and let me know your thoughts!
+The entire codebase for the website is open-source and presented above. This project is still currently active and is served at the domain `reachapp.xyz`. Check it out and let me know your thoughts!
